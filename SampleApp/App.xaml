@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="SampleApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleApp"
+    xmlns:nav="using:SampleApp.Navigation"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <nav:NavigationItems x:Key="NavItems"/>
+    </Application.Resources>
+</Application>
