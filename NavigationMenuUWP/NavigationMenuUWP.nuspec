@@ -29,9 +29,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="$projectdir$\bin\$configuration$\$assembly$.*" target="lib\netcore50" />
-    <file src="$projectdir$\bin\$configuration$\**\*.pri" target="lib\netcore50\$assembly$" />
-    <file src="$projectdir$\bin\$configuration$\**\*.xbf" target="lib\netcore50\$assembly$" />
-    <file src="$projectdir$\bin\$configuration$\**\*.xr.xml" target="lib\netcore50\$assembly$" />
+    <file src="$projectdir$\bin\$configuration$\NavigationMenuUWP.*" target="lib\netcore50" />
+    <file src="$projectdir$\bin\$configuration$\**\*.pri" target="lib\netcore50\NavigationMenuUWP" />
+    <file src="$projectdir$\bin\$configuration$\**\*.xbf" target="lib\netcore50\NavigationMenuUWP" />
+    <file src="$projectdir$\bin\$configuration$\**\*.xr.xml" target="lib\netcore50\NavigationMenuUWP" />
   </files>
 </package>
