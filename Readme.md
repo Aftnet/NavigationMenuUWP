@@ -1,4 +1,4 @@
-# NavigationMenuWUP
+# NavigationMenuUWP
 
 [![Build status](https://ci.appveyor.com/api/projects/status/7hi2kspdudmd05vl?svg=true)](https://ci.appveyor.com/project/albertofustinoni/navigationmenuuwp)
 
