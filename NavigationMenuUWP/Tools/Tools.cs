@@ -7,6 +7,8 @@ namespace NavigationMenuUWP.Tools
     {
         public static T FindVisualChild<T>(this DependencyObject obj) where T : DependencyObject
         {
+            if (obj is T) return (T)obj;
+
             for (int i = 0; i <= VisualTreeHelper.GetChildrenCount(obj) - 1; i++)
             {
                 var child = VisualTreeHelper.GetChild(obj, i);

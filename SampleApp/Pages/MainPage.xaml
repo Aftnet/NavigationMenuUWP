@@ -12,7 +12,11 @@
                          NavigationItemsBottom="{Binding BottomItems, Source={StaticResource NavItems}}">
         <nmu:NavigationFrame.FrameContent>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <TextBlock Text="Main page"/>
+                <nmu:PageHeader>
+                    <nmu:PageHeader.HeaderContent>
+                        <TextBlock Text="Sample app" Style="{ThemeResource TitleTextBlockStyle}"/>
+                    </nmu:PageHeader.HeaderContent>
+                </nmu:PageHeader>
             </Grid>
         </nmu:NavigationFrame.FrameContent>
     </nmu:NavigationFrame>

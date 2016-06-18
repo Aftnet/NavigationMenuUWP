@@ -109,7 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\NavMenuListView.cs" />
-    <Compile Include="Controls\PageHeader.xaml.cs" />
+    <Compile Include="PageHeader.xaml.cs" />
     <Compile Include="NavigationFrame.xaml.cs" />
     <Compile Include="NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,7 +117,7 @@
     <EmbeddedResource Include="Properties\NavigationMenuUWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\PageHeader.xaml">
+    <Page Include="PageHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

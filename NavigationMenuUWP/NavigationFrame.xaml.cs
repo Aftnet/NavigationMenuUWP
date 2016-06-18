@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Automation;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using System.Linq;
+using NavigationMenuUWP.Tools;
 
 namespace NavigationMenuUWP
 {
@@ -291,7 +292,7 @@ namespace NavigationMenuUWP
 
         private Frame GetHostingFrame()
         {
-            var frame = ((Frame)Window.Current.Content);
+            var frame = Window.Current.Content.FindVisualChild<Frame>();
             return frame;
         }
     }
