@@ -1,5 +1,5 @@
-﻿<?xml version="1.0"?>
-<package >
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
   <metadata>
     <id>$id$</id>
     <version>$version$</version>
@@ -13,6 +13,25 @@
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags></tags>
-    <dependencies></dependencies>
+    <dependencies>
+      <group targetFramework="uap10.0">
+        <dependency id="System.Collections" version="4.0.10" />
+        <dependency id="System.Diagnostics.Debug" version="4.0.10" />
+        <dependency id="System.Diagnostics.Tools" version="4.0.0" />
+        <dependency id="System.Linq" version="4.0.0" />
+        <dependency id="System.Runtime" version="4.0.20" />
+        <dependency id="System.Runtime.Extensions" version="4.0.10" />
+        <dependency id="System.Runtime.InteropServices.WindowsRuntime" version="4.0.0" />
+        <dependency id="System.Runtime.WindowsRuntime" version="4.0.10" />
+        <dependency id="System.Runtime.WindowsRuntime.UI.Xaml" version="4.0.0" />
+        <dependency id="System.Threading" version="4.0.10" />
+      </group>
+    </dependencies>
   </metadata>
+  <files>
+    <file src="$projectdir$\bin\$configuration$\$assembly$.*" target="lib\netcore50" />
+    <file src="$projectdir$\bin\$configuration$\**\*.pri" target="lib\netcore50\$assembly$" />
+    <file src="$projectdir$\bin\$configuration$\**\*.xbf" target="lib\netcore50\$assembly$" />
+    <file src="$projectdir$\bin\$configuration$\**\*.xr.xml" target="lib\netcore50\$assembly$" />
+  </files>
 </package>
