@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NavigationMenuUWP")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Easy to integrate UWP navigation menu with a native look")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Aftnet")]
 [assembly: AssemblyProduct("NavigationMenuUWP")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
