@@ -46,7 +46,6 @@ namespace NavigationMenuUWP
         public static readonly DependencyProperty NavigationItemsBottomProperty =
             DependencyProperty.Register("NavigationItemsBottom", typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
 
-        private bool isPaddingAdded = false;
         // Declare the top level nav items
 
         /// <summary>
@@ -61,9 +60,6 @@ namespace NavigationMenuUWP
             this.Loaded += (sender, args) =>
             {
                 this.CheckTogglePaneButtonSizeChanged();
-
-                var titleBar = Windows.ApplicationModel.Core.CoreApplication.GetCurrentView().TitleBar;
-                titleBar.IsVisibleChanged += TitleBar_IsVisibleChanged;
 
                 var currentPageType = GetHostingFrame().CurrentSourcePageType;
 
@@ -88,29 +84,6 @@ namespace NavigationMenuUWP
                     // DisplayMode changes.
                     this.CheckTogglePaneButtonSizeChanged();
                 });
-        }
-
-        /// <summary>
-        /// Invoked when window title bar visibility changes, such as after loading or in tablet mode
-        /// Ensures correct padding at window top, between title bar and app content
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void TitleBar_IsVisibleChanged(Windows.ApplicationModel.Core.CoreApplicationViewTitleBar sender, object args)
-        {
-            if (!this.isPaddingAdded && sender.IsVisible)
-            {
-                //add extra padding between window title bar and app content
-                double extraPadding = (Double)Resources["DesktopWindowTopPadding"];
-                this.isPaddingAdded = true;
-
-                Thickness margin = NavMenuListTop.Margin;
-                NavMenuListTop.Margin = new Thickness(margin.Left, margin.Top + extraPadding, margin.Right, margin.Bottom);
-                margin = ContentArea.Margin;
-                ContentArea.Margin = new Thickness(margin.Left, margin.Top + extraPadding, margin.Right, margin.Bottom);
-                margin = TogglePaneButton.Margin;
-                TogglePaneButton.Margin = new Thickness(margin.Left, margin.Top + extraPadding, margin.Right, margin.Bottom);
-            }
         }
 
         /// <summary>
