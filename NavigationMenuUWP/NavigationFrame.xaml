@@ -95,7 +95,7 @@
                     <controls:NavMenuListView x:Name="NavMenuListTop"
                                           Grid.Row="0"
                                           TabIndex="3"
-                                          Margin="0,52,0,0"
+                                          Margin="0,48,0,0"
                                           ContainerContentChanging="NavMenuItemContainerContentChanging"
                                           ItemsSource="{x:Bind NavigationItemsTop, Mode=OneWay}"
                                           ItemContainerStyle="{StaticResource NavMenuItemContainerStyle}"
@@ -121,7 +121,7 @@
                  OnNavigatedToPage we move keyboard focus to the first item on the page after it's loaded and update the Back button. -->
             <ContentPresenter x:Name="ContentArea"
                               Content="{x:Bind FrameContent, Mode=OneWay}"
-                              Margin="0,4,0,0"
+                              Margin="0"
                               HorizontalAlignment="Stretch"
                               VerticalAlignment="Stretch"/>
         </SplitView>
@@ -129,7 +129,7 @@
         <!-- Declared last to have it rendered above everything else, but it needs to be the first item in the tab sequence. -->
         <ToggleButton x:Name="TogglePaneButton"
                       TabIndex="1"
-                      Margin="0,4,0,0"
+                      Margin="0"
                       Style="{StaticResource SplitViewTogglePaneButtonStyle}"
                       IsChecked="{Binding IsPaneOpen, ElementName=RootSplitView, Mode=TwoWay}"
                       Unchecked="TogglePaneButton_Unchecked"
