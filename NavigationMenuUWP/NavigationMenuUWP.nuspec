@@ -31,7 +31,7 @@
   <files>
     <file src="bin\$configuration$\*.dll" target="lib\uap10.0" />
     <file src="bin\$configuration$\*.pri" target="lib\uap10.0" />
-    <file src="bin\$configuration$\*.xbf" target="lib\uap10.0" />
-    <file src="bin\$configuration$\*.xr.xml" target="lib\uap10.0" />
+    <file src="bin\$configuration$\*.xbf" target="lib\uap10.0\NavigationMenuUWP" />
+    <file src="bin\$configuration$\*.xr.xml" target="lib\uap10.0\NavigationMenuUWP" />
   </files>
 </package>
