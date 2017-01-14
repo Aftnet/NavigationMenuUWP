@@ -20,7 +20,7 @@
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles\Styles.xaml"/>
+                <ResourceDictionary Source="Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate x:Key="NavMenuItemTemplate" x:DataType="local:NavMenuItem">
                 <Grid>

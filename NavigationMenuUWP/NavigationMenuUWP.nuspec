@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>$id$</id>
+    <id>NavigationMenuUWP</id>
     <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <title>NavigationMenuUWP</title>
+    <authors>Aftnet</authors>
+    <owners>Aftnet</owners>
     <licenseUrl>https://raw.githubusercontent.com/albertofustinoni/NavigationMenuUWP/master/License.txt</licenseUrl>
     <projectUrl>https://github.com/albertofustinoni/NavigationMenuUWP</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Easy to integrate UWP navigation menu with a native look</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags></tags>
@@ -29,9 +29,9 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="$projectdir$\bin\$configuration$\NavigationMenuUWP.*" target="lib\netcore50" />
-    <file src="$projectdir$\bin\$configuration$\**\*.pri" target="lib\netcore50\NavigationMenuUWP" />
-    <file src="$projectdir$\bin\$configuration$\**\*.xbf" target="lib\netcore50\NavigationMenuUWP" />
-    <file src="$projectdir$\bin\$configuration$\**\*.xr.xml" target="lib\netcore50\NavigationMenuUWP" />
+    <file src="bin\$configuration$\*.dll" target="lib\uap10.0" />
+    <file src="bin\$configuration$\*.pri" target="lib\uap10.0" />
+    <file src="bin\$configuration$\*.xbf" target="lib\uap10.0" />
+    <file src="bin\$configuration$\*.xr.xml" target="lib\uap10.0" />
   </files>
 </package>
