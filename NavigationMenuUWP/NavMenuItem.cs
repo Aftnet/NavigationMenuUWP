@@ -6,7 +6,7 @@ namespace NavigationMenuUWP
     /// <summary>
     /// Data to represent an item in the nav menu.
     /// </summary>
-    public class NavMenuItem
+    public sealed class NavMenuItem
     {
         public string Label { get; set; }
         public Symbol Symbol { get; set; }

@@ -22,29 +22,26 @@ namespace NavigationMenuUWP
             get { return (UIElement)GetValue(FrameContentProperty); }
             set { SetValue(FrameContentProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for FrameContent.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty FrameContentProperty =
-            DependencyProperty.Register("FrameContent", typeof(UIElement), typeof(NavigationFrame), new PropertyMetadata(DependencyProperty.UnsetValue));
+        private static readonly DependencyProperty frameContentProperty = DependencyProperty.Register("FrameContent", typeof(UIElement), typeof(NavigationFrame), new PropertyMetadata(DependencyProperty.UnsetValue));
+        internal static DependencyProperty FrameContentProperty { get { return frameContentProperty; } }
 
         public IEnumerable<NavMenuItem> NavigationItemsTop
         {
             get { return (IEnumerable<NavMenuItem>)GetValue(NavigationItemsTopProperty); }
             set { SetValue(NavigationItemsTopProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for NavigationItems.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty NavigationItemsTopProperty =
-            DependencyProperty.Register("NavigationItemsTop", typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
+        private static readonly DependencyProperty navigationItemsTopProperty = DependencyProperty.Register("NavigationItemsTop", typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
+        internal static DependencyProperty NavigationItemsTopProperty { get { return navigationItemsTopProperty; } }
 
         public IEnumerable<NavMenuItem> NavigationItemsBottom
         {
             get { return (IEnumerable<NavMenuItem>)GetValue(NavigationItemsBottomProperty); }
             set { SetValue(NavigationItemsBottomProperty, value); }
         }
-
-        public static readonly DependencyProperty NavigationItemsBottomProperty =
-            DependencyProperty.Register("NavigationItemsBottom", typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
+        private static readonly DependencyProperty navigationItemsBottomProperty = DependencyProperty.Register("NavigationItemsBottom", typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
+        internal static DependencyProperty NavigationItemsBottomProperty { get { return navigationItemsBottomProperty; } }
 
         // Declare the top level nav items
 

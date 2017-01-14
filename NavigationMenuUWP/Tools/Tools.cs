@@ -3,7 +3,7 @@ using Windows.UI.Xaml.Media;
 
 namespace NavigationMenuUWP.Tools
 {
-    public static class Tools
+    internal static class Tools
     {
         public static T FindVisualChild<T>(this DependencyObject obj) where T : DependencyObject
         {

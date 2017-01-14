@@ -33,6 +33,7 @@ namespace NavigationMenuUWP
         }
 
         // Using a DependencyProperty as the backing store for HeaderContent.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty HeaderContentProperty = DependencyProperty.Register("HeaderContent", typeof(UIElement), typeof(PageHeader), new PropertyMetadata(DependencyProperty.UnsetValue));
+        private static readonly DependencyProperty headerContentProperty = DependencyProperty.Register("HeaderContent", typeof(UIElement), typeof(PageHeader), new PropertyMetadata(DependencyProperty.UnsetValue));
+        internal static DependencyProperty HeaderContentProperty { get { return headerContentProperty; } }
     }
 }

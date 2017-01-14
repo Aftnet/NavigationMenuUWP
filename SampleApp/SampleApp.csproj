@@ -143,11 +143,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NavigationMenuUWP\NavigationMenuUWP.csproj">
-      <Project>{35b96c40-fcb6-493a-b03b-58e068a2836b}</Project>
+      <Project>{3322dbb6-85f4-4552-a0c7-9a6fad9a8897}</Project>
       <Name>NavigationMenuUWP</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
