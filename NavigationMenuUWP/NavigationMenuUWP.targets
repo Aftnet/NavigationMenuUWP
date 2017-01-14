@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <NavigationMenuUWP-Platform Condition="'$(Platform)' == 'Win32'">x86</NavigationMenuUWP-Platform>
+        <NavigationMenuUWP-Platform Condition="'$(Platform)' != 'Win32'">$(Platform)</NavigationMenuUWP-Platform>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(TargetPlatformIdentifier)' == 'UAP'">
+        <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\NavigationMenuUWP.winmd"/>
+    </ItemGroup>
+</Project>

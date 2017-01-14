@@ -19,5 +19,7 @@
     <file src="bin\$configuration$\*.winmd" target="lib\uap10.0" />
     <file src="bin\$configuration$\*.xbf" target="lib\uap10.0\NavigationMenuUWP" />
     <file src="bin\$configuration$\*.xr.xml" target="lib\uap10.0\NavigationMenuUWP" />
+    <!-- .targets -->
+    <file src="NavigationMenuUWP.targets" target="build\native"/>
   </files>
 </package>
