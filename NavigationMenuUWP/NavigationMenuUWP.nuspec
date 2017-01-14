@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>NavigationMenuUWP</id>
+    <version>$version$</version>
+    <title>NavigationMenuUWP</title>
+    <authors>Aftnet</authors>
+    <owners>Aftnet</owners>
+    <licenseUrl>https://raw.githubusercontent.com/albertofustinoni/NavigationMenuUWP/master/License.txt</licenseUrl>
+    <projectUrl>https://github.com/albertofustinoni/NavigationMenuUWP</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Easy to integrate UWP navigation menu with a native look</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\*.pri" target="lib\uap10.0" />
+    <file src="bin\$configuration$\*.winmd" target="lib\uap10.0" />
+    <file src="bin\$configuration$\*.xbf" target="lib\uap10.0\NavigationMenuUWP" />
+    <file src="bin\$configuration$\*.xr.xml" target="lib\uap10.0\NavigationMenuUWP" />
+  </files>
+</package>
