@@ -1,6 +1,7 @@
 # NavigationMenuUWP
 
-[![Build status](https://ci.appveyor.com/api/projects/status/7hi2kspdudmd05vl?svg=true)](https://ci.appveyor.com/project/albertofustinoni/navigationmenuuwp)
+[![Build status](https://ci.appveyor.com/api/projects/status/7hi2kspdudmd05vl?svg=true)](https://ci.appveyor.com/project/Aftnet/navigationmenuuwp)
+[![NuGet version](https://badge.fury.io/nu/NavigationMenuUWP.svg)](https://badge.fury.io/nu/NavigationMenuUWP)
 
 ## A simple(r) way to add a nice looking navigation menu to UWP apps
 
