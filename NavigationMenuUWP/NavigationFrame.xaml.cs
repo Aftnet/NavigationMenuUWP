@@ -19,29 +19,45 @@ namespace NavigationMenuUWP
     {
         public UIElement FrameContent
         {
-            get { return (UIElement)GetValue(FrameContentProperty); }
+            get => (UIElement)GetValue(FrameContentProperty);
             set { SetValue(FrameContentProperty, value); }
         }
         // Using a DependencyProperty as the backing store for FrameContent.  This enables animation, styling, binding, etc...
-        private static readonly DependencyProperty frameContentProperty = DependencyProperty.Register("FrameContent", typeof(UIElement), typeof(NavigationFrame), new PropertyMetadata(DependencyProperty.UnsetValue));
-        internal static DependencyProperty FrameContentProperty { get { return frameContentProperty; } }
+        private static readonly DependencyProperty frameContentProperty = DependencyProperty.Register(nameof(FrameContent), typeof(UIElement), typeof(NavigationFrame), new PropertyMetadata(DependencyProperty.UnsetValue));
+        internal static DependencyProperty FrameContentProperty => frameContentProperty;
 
         public IEnumerable<NavMenuItem> NavigationItemsTop
         {
-            get { return (IEnumerable<NavMenuItem>)GetValue(NavigationItemsTopProperty); }
+            get => (IEnumerable<NavMenuItem>)GetValue(NavigationItemsTopProperty);
             set { SetValue(NavigationItemsTopProperty, value); }
         }
         // Using a DependencyProperty as the backing store for NavigationItems.  This enables animation, styling, binding, etc...
-        private static readonly DependencyProperty navigationItemsTopProperty = DependencyProperty.Register("NavigationItemsTop", typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
-        internal static DependencyProperty NavigationItemsTopProperty { get { return navigationItemsTopProperty; } }
+        private static readonly DependencyProperty navigationItemsTopProperty = DependencyProperty.Register(nameof(NavigationItemsTop), typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
+        internal static DependencyProperty NavigationItemsTopProperty => navigationItemsTopProperty;
 
         public IEnumerable<NavMenuItem> NavigationItemsBottom
         {
-            get { return (IEnumerable<NavMenuItem>)GetValue(NavigationItemsBottomProperty); }
+            get => (IEnumerable<NavMenuItem>)GetValue(NavigationItemsBottomProperty);
             set { SetValue(NavigationItemsBottomProperty, value); }
         }
-        private static readonly DependencyProperty navigationItemsBottomProperty = DependencyProperty.Register("NavigationItemsBottom", typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
-        internal static DependencyProperty NavigationItemsBottomProperty { get { return navigationItemsBottomProperty; } }
+        private static readonly DependencyProperty navigationItemsBottomProperty = DependencyProperty.Register(nameof(NavigationItemsBottom), typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
+        internal static DependencyProperty NavigationItemsBottomProperty => navigationItemsBottomProperty;
+
+        public TypedEventHandler<NavigationFrame, NavMenuItem> ItemSelected
+        {
+            get => (TypedEventHandler<NavigationFrame, NavMenuItem>)GetValue(ItemSelectedProperty);
+            set { SetValue(ItemSelectedProperty, value); }
+        }
+        private static readonly DependencyProperty itemSelectedProperty = DependencyProperty.Register(nameof(ItemSelected), typeof(TypedEventHandler<NavigationFrame, NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(default(TypedEventHandler<NavigationFrame, NavMenuItem>)));
+        internal static DependencyProperty ItemSelectedProperty => itemSelectedProperty;
+
+        public Rect TogglePaneButtonRect { get; private set; }
+
+        /// <summary>
+        /// An event to notify listeners when the hamburger button may occlude other content in the app.
+        /// The custom "PageHeader" user control is using this.
+        /// </summary>
+        public event TypedEventHandler<NavigationFrame, Rect> TogglePaneButtonRectChanged;
 
         // Declare the top level nav items
 
@@ -52,35 +68,30 @@ namespace NavigationMenuUWP
         /// </summary>
         public NavigationFrame()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.Loaded += (sender, args) =>
+            Loaded += (sender, args) =>
             {
                 this.CheckTogglePaneButtonSizeChanged();
-
-                var currentPageType = GetHostingFrame().CurrentSourcePageType;
-
-                var itemToSelect = NavigationItemsTop.FirstOrDefault(d => d.DestPage == currentPageType);
-                if(itemToSelect!=null)
-                {
-                    NavMenuListTop.SelectedItem = itemToSelect;
-                }
-
-                itemToSelect = NavigationItemsBottom.FirstOrDefault(d => d.DestPage == currentPageType);
-                if (itemToSelect != null)
-                {
-                    NavMenuListBottom.SelectedItem = itemToSelect;
-                }
             };
 
-            this.RootSplitView.RegisterPropertyChangedCallback(
-                SplitView.DisplayModeProperty,
-                (s, a) =>
-                {
-                    // Ensure that we update the reported size of the TogglePaneButton when the SplitView's
-                    // DisplayMode changes.
-                    this.CheckTogglePaneButtonSizeChanged();
-                });
+            RootSplitView.RegisterPropertyChangedCallback(SplitView.DisplayModeProperty, (s, a) =>
+            {
+                // Ensure that we update the reported size of the TogglePaneButton when the SplitView's
+                // DisplayMode changes.
+                CheckTogglePaneButtonSizeChanged();
+            });
+        }
+
+
+        /// <summary>
+        /// Public method to allow pages to open SplitView's pane.
+        /// Used for custom app shortcuts like navigating left from page's left-most item
+        /// </summary>
+        public void OpenNavePane()
+        {
+            TogglePaneButton.IsChecked = true;
+            NavPaneDivider.Visibility = Visibility.Visible;
         }
 
         /// <summary>
@@ -146,10 +157,7 @@ namespace NavigationMenuUWP
 
             if (item != null)
             {
-                if (item.DestPage != null && item.DestPage != frame.CurrentSourcePageType)
-                {
-                    frame.Navigate(item.DestPage, item.Arguments);
-                }
+                ItemSelected?.Invoke(this, item);
             }
         }
 
@@ -160,28 +168,6 @@ namespace NavigationMenuUWP
         }
 
         #endregion
-
-        public Rect TogglePaneButtonRect
-        {
-            get;
-            private set;
-        }
-
-        /// <summary>
-        /// An event to notify listeners when the hamburger button may occlude other content in the app.
-        /// The custom "PageHeader" user control is using this.
-        /// </summary>
-        public event TypedEventHandler<NavigationFrame, Rect> TogglePaneButtonRectChanged;
-
-        /// <summary>
-        /// Public method to allow pages to open SplitView's pane.
-        /// Used for custom app shortcuts like navigating left from page's left-most item
-        /// </summary>
-        public void OpenNavePane()
-        {
-            TogglePaneButton.IsChecked = true;
-            NavPaneDivider.Visibility = Visibility.Visible;
-        }
 
         /// <summary>
         /// Hides divider when nav pane is closed.
