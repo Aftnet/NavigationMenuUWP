@@ -8,13 +8,13 @@ namespace SampleApp
     {
         private readonly NavMenuItem[] TopNavItems = new NavMenuItem[]
         {
-            new NavMenuItem { Symbol = "\ue10f", Label = "Main page", Param = typeof(MainPage) },
-            new NavMenuItem { Symbol = "\ue12b", Label = "Other page", Param = typeof(OtherPage) },
+            new NavMenuItem { Symbol = "\ue10f", Label = "Main page", Page = typeof(MainPage) },
+            new NavMenuItem { Symbol = "\ue12b", Label = "Other page", Page = typeof(OtherPage) },
         };
 
         private readonly NavMenuItem[] BottomNavItems = new NavMenuItem[]
         {
-            new NavMenuItem { Symbol = "\ue115", Label = "Settings", Param = typeof(SettingsPage) },
+            new NavMenuItem { Symbol = "\ue115", Label = "Settings", Page = typeof(SettingsPage) },
         };
 
         public AppResources()

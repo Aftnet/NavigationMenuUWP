@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -12,6 +13,15 @@ namespace SampleApp.Pages
         public OtherPage()
         {
             this.InitializeComponent();
+        }
+
+        private void NavigationFrame_ItemSelected(NavigationMenuUWP.NavigationFrame sender, NavigationMenuUWP.NavMenuItem args)
+        {
+            var frame = (Frame)Window.Current.Content;
+            if (args.Page != frame.CurrentSourcePageType)
+            {
+                frame.Navigate(args.Page);
+            }
         }
     }
 }

@@ -19,11 +19,10 @@ namespace SampleApp.Pages
         private void NavigationFrame_ItemSelected(NavigationMenuUWP.NavigationFrame sender, NavigationMenuUWP.NavMenuItem args)
         {
             var frame = (Frame)Window.Current.Content;
-            var targetType = (Type)args.Param;
-            if (targetType != frame.CurrentSourcePageType)
+            if (args.Page != frame.CurrentSourcePageType)
             {
-                frame.Navigate(targetType);
-            }            
+                frame.Navigate(args.Page);
+            }
         }
     }
 }

@@ -9,7 +9,8 @@
     mc:Ignorable="d">
 
     <nmu:NavigationFrame NavigationItemsTop="{StaticResource TopNavItems}"
-                         NavigationItemsBottom="{StaticResource BottomNavItems}">
+                         NavigationItemsBottom="{StaticResource BottomNavItems}"
+                         ItemSelected="NavigationFrame_ItemSelected">
         <nmu:NavigationFrame.FrameContent>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <TextBlock Text="Settings page"/>

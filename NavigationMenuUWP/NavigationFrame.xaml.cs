@@ -66,7 +66,21 @@ namespace NavigationMenuUWP
 
             Loaded += (sender, args) =>
             {
-                this.CheckTogglePaneButtonSizeChanged();
+                CheckTogglePaneButtonSizeChanged();
+
+                var currentPageType = GetHostingFrame().CurrentSourcePageType;
+
+                var itemToSelect = NavigationItemsTop.FirstOrDefault(d => d.Page == currentPageType);
+                if (itemToSelect != null)
+                {
+                    NavMenuListTop.SelectedItem = itemToSelect;
+                }
+
+                itemToSelect = NavigationItemsBottom.FirstOrDefault(d => d.Page == currentPageType);
+                if (itemToSelect != null)
+                {
+                    NavMenuListBottom.SelectedItem = itemToSelect;
+                }
             };
 
             RootSplitView.RegisterPropertyChangedCallback(SplitView.DisplayModeProperty, (s, a) =>
