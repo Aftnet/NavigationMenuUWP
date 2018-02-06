@@ -11,19 +11,19 @@ namespace NavigationMenuUWP
     {
         public PageHeader()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.Loaded += (s, a) =>
+            Loaded += (s, a) =>
             {
                 var frame = Window.Current.Content.FindVisualChild<NavigationFrame>();
                 frame.TogglePaneButtonRectChanged += Current_TogglePaneButtonSizeChanged;
-                this.titleBar.Margin = new Thickness(frame.TogglePaneButtonRect.Right, 0, 0, 0);
+                titleBar.Margin = new Thickness(frame.TogglePaneButtonRect.Right, 0, 0, 0);
             };
         }
 
         private void Current_TogglePaneButtonSizeChanged(NavigationFrame sender, Rect e)
         {
-            this.titleBar.Margin = new Thickness(e.Right, 0, 0, 0);
+            titleBar.Margin = new Thickness(e.Right, 0, 0, 0);
         }
 
         public UIElement HeaderContent
@@ -33,7 +33,7 @@ namespace NavigationMenuUWP
         }
 
         // Using a DependencyProperty as the backing store for HeaderContent.  This enables animation, styling, binding, etc...
-        private static readonly DependencyProperty headerContentProperty = DependencyProperty.Register("HeaderContent", typeof(UIElement), typeof(PageHeader), new PropertyMetadata(DependencyProperty.UnsetValue));
-        internal static DependencyProperty HeaderContentProperty { get { return headerContentProperty; } }
+        private static readonly DependencyProperty headerContentProperty = DependencyProperty.Register(nameof(HeaderContent), typeof(UIElement), typeof(PageHeader), new PropertyMetadata(DependencyProperty.UnsetValue));
+        internal static DependencyProperty HeaderContentProperty => headerContentProperty;
     }
 }

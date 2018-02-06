@@ -10,8 +10,7 @@ namespace NavigationMenuUWP
     {
         public string Label { get; set; }
         public string Symbol { get; set; }
-
-        public Type DestPage { get; set; }
-        public object Arguments { get; set; }
+        public Type Page { get; set; }
+        public object Param { get; set; }
     }
 }
