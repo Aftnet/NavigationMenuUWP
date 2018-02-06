@@ -8,8 +8,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <nmu:NavigationFrame NavigationItemsTop="{Binding TopItems, Source={StaticResource NavItems}}"
-                         NavigationItemsBottom="{Binding BottomItems, Source={StaticResource NavItems}}">
+    <nmu:NavigationFrame NavigationItemsTop="{StaticResource TopNavItems}"
+                         NavigationItemsBottom="{StaticResource BottomNavItems}">
         <nmu:NavigationFrame.FrameContent>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <nmu:PageHeader>
