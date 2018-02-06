@@ -23,7 +23,7 @@ namespace NavigationMenuUWP.Controls
     ///    the Ctrl + arrow key to move keyboard focus without triggering selection.  Users won't expect
     ///    this type of keyboarding model on the nav menu.
     /// </remarks>
-    public sealed class NavMenuListView : ListView
+    internal sealed class NavMenuListView : ListView
     {
         private SplitView splitViewHost;
 
