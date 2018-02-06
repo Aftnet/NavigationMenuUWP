@@ -43,13 +43,7 @@ namespace NavigationMenuUWP
         private static readonly DependencyProperty navigationItemsBottomProperty = DependencyProperty.Register(nameof(NavigationItemsBottom), typeof(IEnumerable<NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(new NavMenuItem[0]));
         internal static DependencyProperty NavigationItemsBottomProperty => navigationItemsBottomProperty;
 
-        public TypedEventHandler<NavigationFrame, NavMenuItem> ItemSelected
-        {
-            get => (TypedEventHandler<NavigationFrame, NavMenuItem>)GetValue(ItemSelectedProperty);
-            set { SetValue(ItemSelectedProperty, value); }
-        }
-        private static readonly DependencyProperty itemSelectedProperty = DependencyProperty.Register(nameof(ItemSelected), typeof(TypedEventHandler<NavigationFrame, NavMenuItem>), typeof(NavigationFrame), new PropertyMetadata(default(TypedEventHandler<NavigationFrame, NavMenuItem>)));
-        internal static DependencyProperty ItemSelectedProperty => itemSelectedProperty;
+        public event TypedEventHandler<NavigationFrame, NavMenuItem> ItemSelected;
 
         public Rect TogglePaneButtonRect { get; private set; }
 
